@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  # push: false means ..whenever a docker image is build
+  # don't push it to docker hub.. which is its default behaviour
+  artifacts: #things that are going to be build
+    - image: zura123490/auth
+      context: auth #folder that contains all the code for this image
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts" #build when file .ts inside the src folder will change
+            dest: . # means where to sync file in running container... "." means where was file
+
