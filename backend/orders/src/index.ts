@@ -1,4 +1,3 @@
-import express from "express";
 import mongoose from "mongoose";
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
@@ -19,7 +18,7 @@ p%40ssw0rd%279%27%21
 */
 
 const URI =
-  "mongodb+srv://aniket:1%40AniketsinhA@cluster0.8nlgsd9.mongodb.net/Tickets?retryWrites=true&w=majority";
+  "mongodb+srv://aniket:1%40AniketsinhA@cluster0.8nlgsd9.mongodb.net/Orders?retryWrites=true&w=majority";
 
 const start = async () => {
   /*
@@ -83,9 +82,9 @@ const start = async () => {
     console.log(error);
   }
 
-  app.listen(5001, () => {
+  app.listen(5002, () => {
     // console.log("hua change?  ");
-    console.log("Listening on port 5001 (Tickets Service)");
+    console.log("Listening on port 5002 (Orders Service)");
   });
 };
 
